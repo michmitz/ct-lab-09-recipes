@@ -318,7 +318,7 @@ describe('recipe-lab routes', () => {
         expect(res.body).toEqual({
           id: expect.any(String),
           recipeId: recipe.id,
-          date_of_event: '2020-03-28',
+          dateOfEvent: '2020-03-28',
           notes: 'so tasty',
           rating: '3'
         });
@@ -358,14 +358,14 @@ describe('recipe-lab routes', () => {
           {
             id: expect.any(String),
             recipeId: recipe.id,
-            date_of_event: '2020-03-28',
+            dateOfEvent: '2020-03-28',
             notes: 'so tasty',
             rating: '3'
           },
           {
             id: expect.any(String),
             recipeId: recipe.id,
-            date_of_event: '2020-05-05',
+            dateOfEvent: '2020-05-05',
             notes: 'dang that is good',
             rating: '3'  
           }]));
@@ -396,7 +396,7 @@ describe('recipe-lab routes', () => {
         expect(res.body).toEqual({
           id: expect.any(String),
           recipeId: recipe.id,
-          date_of_event: '2020-03-28',
+          dateOfEvent: '2020-03-28',
           notes: 'so tasty',
           rating: '3' 
         });
@@ -433,7 +433,7 @@ describe('recipe-lab routes', () => {
         expect(res.body).toEqual({
           id: expect.any(String),
           recipeId: recipe.id,
-          date_of_event: '2020-03-28',
+          dateOfEvent: '2020-03-28',
           notes: 'this is actually terrible',
           rating: '2'
         });
@@ -481,11 +481,10 @@ describe('recipe-lab routes', () => {
         expect(res.body).toEqual({
           id: expect.any(String),
           recipeId: recipe.id,
-          date_of_event: '2020-03-28',
+          dateOfEvent: '2020-03-28',
           notes: 'so tasty',
           rating: '3' 
         });
       }); 
   });
-
 });
