@@ -201,7 +201,7 @@ describe('recipe-lab routes', () => {
     return request(app)
       .get('/api/v1/logs')
       .then(res => {
-        expect(res.body).toEqual([
+        expect(res.body).toEqual(expect.arrayContaining([
           {
             id: expect.any(String),
             recipeId: recipe.id,
@@ -215,7 +215,38 @@ describe('recipe-lab routes', () => {
             date_of_event: '2020-05-05T07:00:00.000Z',
             notes: 'dang that is good',
             rating: '3'  
-          }]);
+          }]));
+      });
+  });
+
+  it('gets a recipe by id', async() => {
+    const recipe = await Recipe.insert({
+      name: 'cookies',
+      directions: [
+        'preheat oven to 375',
+        'mix ingredients',
+        'put dough on cookie sheet',
+        'bake for 10 minutes'
+      ]
+    });
+
+    const log = await Log.insertLog({
+      recipeId: recipe.id,
+      dateOfEvent: '2020-3-28',
+      notes: 'so tasty',
+      rating: 3 
+    });
+
+    return request(app)
+      .get(`/api/v1/logs/${log.id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          id: expect.any(String),
+          recipeId: recipe.id,
+          date_of_event: '2020-03-28T07:00:00.000Z',
+          notes: 'so tasty',
+          rating: '3' 
+        });
       });
   });
 });
