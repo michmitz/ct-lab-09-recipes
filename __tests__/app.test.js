@@ -20,7 +20,24 @@ describe('recipe-lab routes', () => {
           'mix ingredients',
           'put dough on cookie sheet',
           'bake for 10 minutes'
-        ]
+        ],
+        ingredients: JSON.stringify([
+          {
+            name: 'butter',
+            amount: 1,
+            measurement: 'cup'
+          },
+          {
+            name: 'sugar',
+            amount: 2,
+            measurement: 'cup'
+          },
+          {
+            name: 'flour',
+            amount: 4,
+            measurement: 'cup'
+          }
+        ])
       })
       .then(res => {
         expect(res.body).toEqual({
@@ -31,6 +48,23 @@ describe('recipe-lab routes', () => {
             'mix ingredients',
             'put dough on cookie sheet',
             'bake for 10 minutes'
+          ],
+          ingredients: [
+            {
+              name: 'butter',
+              amount: 1,
+              measurement: 'cup'
+            },
+            {
+              name: 'sugar',
+              amount: 2,
+              measurement: 'cup'
+            },
+            {
+              name: 'flour',
+              amount: 4,
+              measurement: 'cup'
+            }
           ]
         });
       });
@@ -60,7 +94,24 @@ describe('recipe-lab routes', () => {
         'mix ingredients',
         'put dough on cookie sheet',
         'bake for 10 minutes'
-      ]
+      ],
+      ingredients: JSON.stringify([
+        {
+          name: 'butter',
+          amount: 1,
+          measurement: 'cup'
+        },
+        {
+          name: 'sugar',
+          amount: 2,
+          measurement: 'cup'
+        },
+        {
+          name: 'flour',
+          amount: 4,
+          measurement: 'cup'
+        }
+      ])
     });
 
     return request(app)
@@ -74,6 +125,23 @@ describe('recipe-lab routes', () => {
             'mix ingredients',
             'put dough on cookie sheet',
             'bake for 10 minutes'
+          ],
+          ingredients: [
+            {
+              name: 'butter',
+              amount: 1,
+              measurement: 'cup'
+            },
+            {
+              name: 'sugar',
+              amount: 2,
+              measurement: 'cup'
+            },
+            {
+              name: 'flour',
+              amount: 4,
+              measurement: 'cup'
+            }
           ]
         });
       });
@@ -88,6 +156,23 @@ describe('recipe-lab routes', () => {
         'put dough on cookie sheet',
         'bake for 10 minutes'
       ],
+      ingredients: JSON.stringify([
+        {
+          name: 'butter',
+          amount: 1,
+          measurement: 'cup'
+        },
+        {
+          name: 'sugar',
+          amount: 2,
+          measurement: 'cup'
+        },
+        {
+          name: 'flour',
+          amount: 4,
+          measurement: 'cup'
+        }
+      ])
     });
 
     return request(app)
@@ -110,6 +195,23 @@ describe('recipe-lab routes', () => {
             'mix ingredients',
             'put dough on cookie sheet',
             'bake for 10 minutes'
+          ],
+          ingredients: [
+            {
+              name: 'butter',
+              amount: 1,
+              measurement: 'cup'
+            },
+            {
+              name: 'sugar',
+              amount: 2,
+              measurement: 'cup'
+            },
+            {
+              name: 'flour',
+              amount: 4,
+              measurement: 'cup'
+            }
           ]
         });
       });
@@ -123,7 +225,24 @@ describe('recipe-lab routes', () => {
         'mix ingredients',
         'put dough on cookie sheet',
         'bake for 10 minutes'
-      ]
+      ],
+      ingredients: JSON.stringify([
+        {
+          name: 'butter',
+          amount: 1,
+          measurement: 'cup'
+        },
+        {
+          name: 'sugar',
+          amount: 2,
+          measurement: 'cup'
+        },
+        {
+          name: 'flour',
+          amount: 4,
+          measurement: 'cup'
+        }
+      ])
     });
 
     return request(app)
@@ -137,6 +256,23 @@ describe('recipe-lab routes', () => {
             'mix ingredients',
             'put dough on cookie sheet',
             'bake for 10 minutes'
+          ],
+          ingredients: [
+            {
+              name: 'butter',
+              amount: 1,
+              measurement: 'cup'
+            },
+            {
+              name: 'sugar',
+              amount: 2,
+              measurement: 'cup'
+            },
+            {
+              name: 'flour',
+              amount: 4,
+              measurement: 'cup'
+            }
           ]
         });
       }); 
@@ -150,7 +286,24 @@ describe('recipe-lab routes', () => {
         'mix ingredients',
         'put dough on cookie sheet',
         'bake for 10 minutes'
-      ]
+      ],
+      ingredients: JSON.stringify([
+        {
+          name: 'butter',
+          amount: 1,
+          measurement: 'cup'
+        },
+        {
+          name: 'sugar',
+          amount: 2,
+          measurement: 'cup'
+        },
+        {
+          name: 'flour',
+          amount: 4,
+          measurement: 'cup'
+        }
+      ])
     });
 
     return request(app)
@@ -287,7 +440,7 @@ describe('recipe-lab routes', () => {
       });
   });
 
-  it('deletes a recipe by id', async() => {
+  it('deletes a log by id', async() => {
     const recipe = await Recipe.insert({
       name: 'cookies',
       directions: [
@@ -295,7 +448,24 @@ describe('recipe-lab routes', () => {
         'mix ingredients',
         'put dough on cookie sheet',
         'bake for 10 minutes'
-      ]
+      ],
+      ingredients: JSON.stringify([
+        {
+          name: 'butter',
+          amount: 1,
+          measurement: 'cup'
+        },
+        {
+          name: 'sugar',
+          amount: 2,
+          measurement: 'cup'
+        },
+        {
+          name: 'flour',
+          amount: 4,
+          measurement: 'cup'
+        }
+      ])
     });
 
     const log = await Log.insertLog({
