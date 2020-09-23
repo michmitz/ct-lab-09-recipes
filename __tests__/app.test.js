@@ -167,8 +167,55 @@ describe('recipe-lab routes', () => {
           recipeId: recipe.id,
           date_of_event: '2020-03-28T07:00:00.000Z',
           notes: 'so tasty',
-          rating: "3"
+          rating: '3'
         });
+      });
+  });
+
+  it('gets all logs', async() => {
+    const recipe = await Recipe.insert({
+      name: 'cookies',
+      directions: [
+        'preheat oven to 375',
+        'mix ingredients',
+        'put dough on cookie sheet',
+        'bake for 10 minutes'
+      ]
+    });
+
+    await Promise.all([
+      { 
+        recipeId: recipe.id,
+        dateOfEvent: '2020-3-28',
+        notes: 'so tasty',
+        rating: 3 
+      },
+      { 
+        recipeId: recipe.id,
+        dateOfEvent: '2020-5-05',
+        notes: 'dang that is good',
+        rating: 3 
+      }
+    ].map(log => Log.insertLog(log)));
+
+    return request(app)
+      .get('/api/v1/logs')
+      .then(res => {
+        expect(res.body).toEqual([
+          {
+            id: expect.any(String),
+            recipeId: recipe.id,
+            date_of_event: '2020-03-28T07:00:00.000Z',
+            notes: 'so tasty',
+            rating: '3'
+          },
+          {
+            id: expect.any(String),
+            recipeId: recipe.id,
+            date_of_event: '2020-05-05T07:00:00.000Z',
+            notes: 'dang that is good',
+            rating: '3'  
+          }]);
       });
   });
 });
